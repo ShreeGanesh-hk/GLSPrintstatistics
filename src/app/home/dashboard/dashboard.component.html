@@ -1,0 +1,40 @@
+<div [@routerTransition]>
+  <div class="row">
+    <div class="col col-sm-12">
+      <div class="card mb-12">
+        <div class="card-header">
+          Summary Chart of {{ today | date:'yyyy' }}
+        </div>
+        <div class="card-body">
+          <canvas baseChart [datasets]="barChartData" *ngIf="barChartData" [colors]="barChartColors" [labels]="barChartLabels" [options]="barChartOptions"
+            [legend]="barChartLegend" [chartType]="barChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)">
+          </canvas>
+        </div>
+
+      </div>
+      <div class="card mb-12">
+        <div class="card-header">
+          Total Printouts Monthly since {{ today | date:'yyyy' }}
+        </div>
+        <div class="card-body">
+          <canvas baseChart #summarychart [datasets]="lineChartData" *ngIf="lineChartData" [labels]="lineChartLabels" [options]="lineChartOptions"
+            [colors]="lineChartColors" [legend]="lineChartLegend" [chartType]="lineChartType" (chartHover)="chartHovered($event)"
+            (chartClick)="chartClicked($event)">
+          </canvas>
+          <!-- <a href="#" (click)="downloadCanvas($event)"> DOWNLOAD THIS</a> -->
+        </div>
+      </div>
+      <div class="card mb-12">
+          <div class="card-header1">
+              Monthly prinouts per day since {{ today | date:'yyyy' }}
+          </div>
+          <div class="card-body">
+            <canvas baseChart [datasets]="line2ChartData" *ngIf="line2ChartData" [labels]="line2ChartLabels" [options]="lineChartOptions"
+              [colors]="lineChartColors" [legend]="lineChartLegend" [chartType]="lineChartType" (chartHover)="chartHovered($event)"
+              (chartClick)="chartClicked($event)">
+            </canvas>
+          </div>
+        </div>
+    </div>
+  </div>
+</div>

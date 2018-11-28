@@ -1,0 +1,17 @@
+<nav class="sidebar" [ngClass]="{sidebarPushRight: isActive}">
+        <nav class="navbar">
+                <a class="navbar-brand" href="#">VOLVO</a>
+                 
+              </nav>
+    <div class="list-group">
+        <a routerLink="/dashboard" [routerLinkActive]="['router-link-active']" class="list-group-item">
+            <i class="fa fa-fw fa-dashboard"></i>&nbsp;{{ 'Dashboard' | translate }}
+        </a>
+        <a [routerLink]="['/report']" [routerLinkActive]="['router-link-active']" class="list-group-item">
+            <i class="fa fa-fw fa-bar-chart-o"></i>&nbsp;{{ 'Reports' | translate }}
+        </a>
+        <a [routerLink]="['/tables']" [routerLinkActive]="['router-link-active']" class="list-group-item">
+            <i class="fa fa-fw fa-table"></i>&nbsp;{{ 'Exports' | translate }}
+        </a>
+    </div>
+</nav>
